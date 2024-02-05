@@ -3,31 +3,13 @@ body{
 	margin:0px;
 }
 main{
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: "inter";
 	height:100vh;
 	width:100vw;
-	background: rgb(54, 6, 164);
-	background: linear-gradient(45deg, rgb(67, 11, 189) 2%, rgba(6, 74, 164, 1) 35%, rgba(19, 139, 195, 1) 65%, rgba(97, 198, 255, 1) 100%);
-	animation: grad 1s ease-in-out infinite linear;
+	background: #151D2F;
 	margin:0px;
 }
-@keyframes grad {
-	0% {
-	  background: linear-gradient(90deg, rgb(67, 11, 189) 2%, rgba(6, 74, 164, 1) 45%, rgba(19, 139, 195, 1) 75%, rgba(97, 198, 255, 1) 100%);
-	}
-	25% {
-	  background: linear-gradient(90deg, rgba(54, 6, 164, 1) 10%, rgba(6, 74, 164, 1) 75%, rgba(19, 139, 195, 1) 85%, rgba(97, 198, 255, 1) 100%);
-	}
-	50% {
-	  background: linear-gradient(90deg, rgb(67, 11, 189) 15%, rgba(6, 74, 164, 1) 85%, rgba(19, 139, 195, 1) 95%, rgba(97, 198, 255, 1) 100%);
-	}
-	75% {
-	  background: linear-gradient(90deg, rgba(54, 6, 164, 1) 10%, rgba(6, 74, 164, 1) 75%, rgba(19, 139, 195, 1) 85%, rgba(97, 198, 255, 1) 100%);
-	}
-	100% {
-	  background: linear-gradient(90deg, rgb(67, 11, 189) 2%, rgba(6, 74, 164, 1) 45%, rgba(19, 139, 195, 1) 75%, rgba(97, 198, 255, 1) 100%);
-	}
-  }
+
   
   #main-container{
 	  #auth-container{
@@ -36,8 +18,8 @@ main{
 		overflow:hidden;
 		  width: 40vw;
 		  height:80vh;
-		  background-color: rgba(174, 172, 172, 0.1);
-		  border:2px solid rgba(0, 0, 0, 0.309) ;
+		  background-color: #2B304D;
+		  box-shadow:0px 0px 25px rgba(0, 0, 0, 0.336);
 		  display: flex;
 		  flex-direction: column;
 		  transform:translateY(10vh);
@@ -49,7 +31,7 @@ main{
 		  margin-right:10vh;
 
 		  #auth-nav{
-			color:black;
+			color:white;
 			display: flex;
 			width:100%;
 			height:fit-content;
@@ -68,10 +50,10 @@ main{
 				// &:hover{
 				// 	border-bottom:1px white solid;
 				// }
-				&:active{
-					// color:white;
-					font-size:85%;
-				}
+				// &:active{
+				// 	// color:white;
+				// 	font-size:85%;
+				// }
 			}
 			
 		  }
@@ -98,11 +80,11 @@ main{
 					width:fit-content;
 					color:white;
 					&::placeholder {
-						color: rgb(72, 72, 72);
+						color: rgb(191, 185, 185);
 					}
 
 					&:focus{
-						border-bottom:1px solid rgb(255, 255, 255);
+						border-bottom:1px solid #EBA977;
 					}
 				}
 				#login-but {
@@ -112,8 +94,8 @@ main{
 					display: flex;
 					justify-content: center;
 					padding: 10px;
-					border: white solid 1px;
-					background-color: transparent;
+					// border: white solid 1px;
+					background-color: #EBA977;
 					color: white;
 					padding-inline: 15px;
 					border-radius: 20px;
@@ -121,11 +103,12 @@ main{
 					cursor:pointer;
 			
 					&:hover {
-						transform: scale(1.05);
-						padding-inline: 30px;
-						border-radius: 10px;
-						border: transparent;
-						background-color: rgba(6, 74, 164, 1);
+						// transform: scale(1.05);
+						// padding-inline: 30px;
+						// border-radius: 10px;
+						border:transparent;
+						// text-decoration: underline;
+						box-shadow:0px 0px 11px #eba97799;
 					}
 				}
 			}
