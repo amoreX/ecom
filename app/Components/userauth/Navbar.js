@@ -7,7 +7,7 @@ export default function nav({login,create,isclick}) {
 		<motion.div
 			id="auth-nav"
 			initial={{ opacity: 0, y: -100 }}
-			transition={{ delay: 1.4,
+			transition={{ delay: 1.91,
 			type:'spring',
             stiffness:100,
             damping:10 }}

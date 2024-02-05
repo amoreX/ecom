@@ -24,7 +24,7 @@ export default function Auth(){
 			width:'1vw'
 		}}
 		transition={{
-			delay:0.65,
+			delay:1,
 			type:'spring',
             stiffness:100,
             damping:10
