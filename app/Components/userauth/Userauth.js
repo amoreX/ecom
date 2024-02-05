@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 import Nav from "./Navbar";
 import Cont from "./input";
 
-export default function auth(){
+export default function Auth(){
 	const [login,setIslogin]=useState(true);
 	const [create,setCreate]=useState(false);
 
