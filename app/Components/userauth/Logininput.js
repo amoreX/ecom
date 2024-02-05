@@ -8,7 +8,7 @@ export default function logininput(){
         transition={{ delay: 0.1,
 			type:'spring',
             stiffness:100,
-            damping:10 }}
+            damping:15 }}
         animate={{x:0}}>
             <input type="text" id="username" placeholder="Username"></input>
             
