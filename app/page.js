@@ -1,3 +1,4 @@
+"use client"
 import Auth from "./Components/userauth/Userauth";
 
 export default function Home() {
