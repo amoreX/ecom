@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export default function createinput() {
+export default function Createinput() {
 	const [valc, setValc] = useState("");
 	const [valcp, setValcp] = useState("y");
 	const handlepass = (e) => setValc(e);

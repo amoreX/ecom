@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function nav({ login, create, isclick }) {
+export default function Nav({ login, create, isclick }) {
 	return (
 		<motion.div
 			id="auth-nav"
