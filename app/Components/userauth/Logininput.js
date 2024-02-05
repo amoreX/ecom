@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-export default function logininput() {
+export default function Logininput() {
 	const [val, setVal] = useState("");
 	const handlechange = (e) => {
 		setVal(e);

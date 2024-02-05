@@ -1,7 +1,7 @@
 import {motion} from 'framer-motion';
 import Lgin from './Logininput';
 import Crte from './createinput'
-export default function input({login,create}){
+export default function Input({login,create}){
     return(
         <motion.div 
         id="container-input"
