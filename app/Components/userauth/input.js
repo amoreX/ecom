@@ -6,7 +6,7 @@ export default function input({login,create}){
         <motion.div 
         id="container-input"
         initial={{opacity:0}}
-        transition={{delay:1.4}}
+        transition={{delay:1.91}}
         animate={{opacity:1}}>
 
             {login==true?
