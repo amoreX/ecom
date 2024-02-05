@@ -12,6 +12,20 @@ main{
 
   
   #main-container{
+	#logo{
+		position:absolute;
+		color:white;
+		display: flex;
+		height:100vh;
+		margin-left:3vw;
+		align-items: center;	
+		font-size: 20rem;
+		cursor:default;
+		color:#2B304D;
+		// border:1px solid  #EBA977;
+		
+
+	}
 	  #auth-container{
 		min-width:400px;
 		min-height:300px;
