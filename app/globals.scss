@@ -25,7 +25,7 @@ main{
 		cursor:default;
 		color:#2B304D;
 		animation: glow 1s  ease-out forwards;
-		animation-delay: 3.6s;
+		animation-delay: 4s;
 		// border:1px solid  #EBA977;
 		
 
@@ -97,6 +97,7 @@ main{
 					border-bottom:1px solid grey;
 					width:fit-content;
 					color:white;
+					
 					&::placeholder {
 						color: rgb(191, 185, 185);
 					}
@@ -104,6 +105,13 @@ main{
 					&:focus{
 						border-bottom:1px solid #EBA977;
 					}
+
+				}
+				#password{
+					-webkit-text-security: disc;
+				}
+				#confirmpass{
+					-webkit-text-security: disc;
 				}
 				#login-but {
 					
