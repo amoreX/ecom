@@ -1,6 +1,6 @@
 "use client";
 import Auth from "./Components/userauth/Userauth";
-import Logo from "./Logo"
+import Logo from "./Logo";
 
 export default function Home() {
 	return (

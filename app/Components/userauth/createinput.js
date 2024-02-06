@@ -15,16 +15,25 @@ export default function Createinput() {
 	const [exist, setExist] = useState(0);
 	const handlecreate = async () => {
 		console.log("works");
-		const result = await axios.post("/api/create", { password: valc, username: user });
-		const data = await result.data;
-		if (data.result == 1) {
+		try {
+		  const result = await axios.post('/api/create', { password: valc, username: user }, {
+			timeout: 60000, // Set the timeout to 60 seconds (adjust as needed)
+		  });
+	
+		  const data = await result.data;
+		  if (data.result == 1) {
 			setExist(1);
-		} else {
+		  } else {
 			router.push("Components/page1");
 			setExist(0);
+		  }
+		  console.log(data);
+		} catch (error) {
+		  console.error('Error making the request:', error);
+		  // Handle error as needed
+		  // You can set an error state, display an error message, or log the error
 		}
-		console.log(data);
-	};
+	  };
 
 	return (
 		<motion.div

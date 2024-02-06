@@ -16,16 +16,28 @@ export default function Logininput() {
 		setUser(e);
 	};
 	const handlelogin = async () => {
-		console.log("worksnicw");
-		const result = await axios.post("/api/check", { password: val, username: user });
-		const data = await result.data;
-		if (data.result == 1) {
-			console.log("Exist");
-			router.push("/Components/page1");
-			setExist(0);
-		} else {
-			console.log("Doesnt exist");
-			setExist(1);
+		try {
+			console.log("worksnicw");
+			const result = await axios.post(
+				"/api/check",
+				{ password: val, username: user },
+				{
+					timeout: 60000,
+				}
+			);
+			const data = await result.data;
+			if (data.result == 1) {
+				console.log("Exist");
+				router.push("/Components/page1");
+				setExist(0);
+			} else {
+				console.log("Doesnt exist");
+				setExist(1);
+			}
+		} catch (error) {
+			console.error("Error making the request:", error);
+			// Handle error as needed
+			// You can set an error state, display an error message, or log the error
 		}
 	};
 	return (
