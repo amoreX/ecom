@@ -1,14 +1,20 @@
 "use client";
 import Auth from "./Components/userauth/Userauth";
 import Logo from "./Logo";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+
 	return (
 		<main>
-			<div id="main-container">
+			<motion.div
+				id="main-container"
+				
+			>
 				<Logo />
 				<Auth></Auth>
-			</div>
+			</motion.div>
 		</main>
 	);
 }

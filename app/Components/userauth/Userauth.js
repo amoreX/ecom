@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Nav from "./Navbar";
 import Cont from "./input";
 
-export default function Auth() {
+export default function Auth( ) {
 	const [login, setIslogin] = useState(true);
 	const [create, setCreate] = useState(false);
 
@@ -35,7 +35,7 @@ export default function Auth() {
 			id="auth-container"
 		>
 			<Nav login={handleLoginclick} isclick={login} create={handleCreateclick}></Nav>
-			<Cont login={login} create={create}></Cont>
+			<Cont   login={login} create={create}></Cont>
 		</motion.div>
 	);
 }

@@ -1,7 +1,7 @@
 import {motion} from 'framer-motion';
 import Lgin from './Logininput';
 import Crte from './createinput'
-export default function Input({login,create}){
+export default function Input({login,create,}){
     return(
         <motion.div 
         id="container-input"
@@ -10,9 +10,9 @@ export default function Input({login,create}){
         animate={{opacity:1}}>
 
             {login==true?
-            <Lgin></Lgin>
+            <Lgin ></Lgin>
             :
-            <Crte></Crte>}
+            <Crte ></Crte>}
 
         </motion.div>
     )

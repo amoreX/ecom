@@ -16,24 +16,31 @@ export default function Createinput() {
 	const handlecreate = async () => {
 		console.log("works");
 		try {
-		  const result = await axios.post('/api/create', { password: valc, username: user }, {
-			timeout: 60000, // Set the timeout to 60 seconds (adjust as needed)
-		  });
-	
-		  const data = await result.data;
-		  if (data.result == 1) {
-			setExist(1);
-		  } else {
-			router.push("Components/page1");
-			setExist(0);
-		  }
-		  console.log(data);
+			const result = await axios.post(
+				"/api/create",
+				{ password: valc, username: user },
+				{
+					timeout: 60000, // Set the timeout to 60 seconds (adjust as needed)
+				}
+			);
+
+			const data = await result.data;
+			if (data.result == 1) {
+				setExist(1);
+			} else {
+				setTimeout(() => {
+					router.push("Components/page1");
+				}, 3000);
+
+				setExist(2);
+			}
+			console.log(data);
 		} catch (error) {
-		  console.error('Error making the request:', error);
-		  // Handle error as needed
-		  // You can set an error state, display an error message, or log the error
+			console.error("Error making the request:", error);
+			// Handle error as needed
+			// You can set an error state, display an error message, or log the error
 		}
-	  };
+	};
 
 	return (
 		<motion.div
@@ -85,10 +92,22 @@ export default function Createinput() {
 			) : (
 				<div></div>
 			)}
-			{exist == 0 ? (
-				<div></div>
-			) : (
+			{exist == 1 ? (
 				<div style={{ color: "red", textAlign: "center" }}>User already Exists</div>
+			) : (
+				<div></div>
+			)}
+			{exist == 2 ? (
+				<motion.div
+					id="login-done2"
+					initial={{ y: 300 }}
+					transition={{ type: "tween", animation: "easeInOut", duration: 0.56 }}
+					animate={{ y: 0 }}
+				>
+					Account Created
+				</motion.div>
+			) : (
+				<div></div>
 			)}
 		</motion.div>
 	);

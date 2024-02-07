@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -28,8 +28,10 @@ export default function Logininput() {
 			const data = await result.data;
 			if (data.result == 1) {
 				console.log("Exist");
-				router.push("/Components/page1");
-				setExist(0);
+				setExist(2);
+				setTimeout(() => {
+					router.push("/Components/page1");
+				}, 4000);
 			} else {
 				console.log("Doesnt exist");
 				setExist(1);
@@ -40,6 +42,7 @@ export default function Logininput() {
 			// You can set an error state, display an error message, or log the error
 		}
 	};
+
 	return (
 		<motion.div
 			id="user-input"
@@ -69,10 +72,23 @@ export default function Logininput() {
 			) : (
 				<div style={{ color: "grey" }}>Password should have atleast 8 characters</div>
 			)}
-			{exist == 0 ? (
-				<div></div>
-			) : (
+			{exist == 1 ? (
 				<div style={{ color: "red", textAlign: "center" }}>User Doesnt Exist</div>
+			) : (
+				<div></div>
+			)}
+
+			{exist == 2 ? (
+				<motion.div
+					id="login-done"
+					initial={{ y: 300 }}
+					transition={{ type: "tween", animation: "easeInOut", duration: 0.56 }}
+					animate={{ y: 0 }}
+				>
+					Login Successfull
+				</motion.div>
+			) : (
+				<div></div>
 			)}
 		</motion.div>
 	);
