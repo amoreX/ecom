@@ -6,15 +6,40 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 export default function Createinput() {
 	const router = useRouter();
+	const loadsvg = (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="20px"
+			height="20px"
+			viewBox="0 0 24 24"
+			fill="none"
+		>
+			<g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+			<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+			<g id="SVGRepo_iconCarrier">
+				{" "}
+				<path
+					d="M20.0001 12C20.0001 13.3811 19.6425 14.7386 18.9623 15.9405C18.282 17.1424 17.3022 18.1477 16.1182 18.8587C14.9341 19.5696 13.5862 19.9619 12.2056 19.9974C10.825 20.0328 9.45873 19.7103 8.23975 19.0612"
+					stroke="#ffffff"
+					stroke-width="3.55556"
+					stroke-linecap="round"
+				/>{" "}
+			</g>
+		</svg>
+	);
 	const [valc, setValc] = useState("");
 	const [valcp, setValcp] = useState("y");
 	const [user, setUser] = useState("");
 	const handlepass = (e) => setValc(e);
 	const handleconfirm = (e) => setValcp(e);
 	const handleuser = (e) => setUser(e);
+	const [loading, setLoading] = useState(false);
 	const [exist, setExist] = useState(0);
 	const handlecreate = async () => {
 		console.log("works");
+		setLoading(true);
 		try {
 			const result = await axios.post(
 				"/api/create",
@@ -27,11 +52,12 @@ export default function Createinput() {
 			const data = await result.data;
 			if (data.result == 1) {
 				setExist(1);
+				setLoading(false);
 			} else {
 				setTimeout(() => {
 					router.push("Components/page1");
 				}, 2000);
-
+				setLoading(false);
 				setExist(2);
 			}
 			console.log(data);
@@ -84,8 +110,7 @@ export default function Createinput() {
 			)}
 			{valc == valcp ? (
 				<div id="login-but" onClick={() => handlecreate()}>
-					{" "}
-					Create Account{" "}
+					{loading == true ? <div id="loadingsvg">{loadsvg}</div> : <div>Create account</div>}
 				</div>
 			) : valcp.length > 1 ? (
 				<div style={{ color: "#EBA977" }}>Passwords do not match</div>

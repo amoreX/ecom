@@ -136,6 +136,18 @@ main{
 						// text-decoration: underline;
 						box-shadow:0px 0px 11px #eba97799;
 					}
+					#loadingsvg{
+						animation: load 0.38s infinite linear;
+					}
+					@keyframes load {
+
+						0% {
+							transform: rotate(0deg);
+						}
+						100% {
+							transform: rotate(360deg);
+						}
+					}
 				}
 				#login-done{
 					padding-inline:10px;
@@ -199,3 +211,12 @@ main{
 		}
 	}
 	
+	@keyframes load {
+
+		0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+	}

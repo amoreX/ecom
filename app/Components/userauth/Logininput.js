@@ -9,6 +9,31 @@ export default function Logininput() {
 	const [val, setVal] = useState("");
 	const [user, setUser] = useState("");
 	const [exist, setExist] = useState(0);
+	const loadsvg = (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="20px"
+			height="20px"
+			viewBox="0 0 24 24"
+			fill="none"
+		>
+			<g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+			<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+			<g id="SVGRepo_iconCarrier">
+				{" "}
+				<path
+					d="M20.0001 12C20.0001 13.3811 19.6425 14.7386 18.9623 15.9405C18.282 17.1424 17.3022 18.1477 16.1182 18.8587C14.9341 19.5696 13.5862 19.9619 12.2056 19.9974C10.825 20.0328 9.45873 19.7103 8.23975 19.0612"
+					stroke="#ffffff"
+					stroke-width="3.55556"
+					stroke-linecap="round"
+				/>{" "}
+			</g>
+		</svg>
+	);
+
+	const [load, setLoad] = useState(false);
 	const handlechange = (e) => {
 		setVal(e);
 	};
@@ -17,6 +42,7 @@ export default function Logininput() {
 	};
 	const handlelogin = async () => {
 		try {
+			setLoad(true);
 			console.log("worksnicw");
 			const result = await axios.post(
 				"/api/check",
@@ -28,6 +54,7 @@ export default function Logininput() {
 			const data = await result.data;
 			if (data.result == 1) {
 				console.log("Exist");
+				setLoad(false);
 				setExist(2);
 				setTimeout(() => {
 					router.push("/Components/page1");
@@ -35,6 +62,7 @@ export default function Logininput() {
 			} else {
 				console.log("Doesnt exist");
 				setExist(1);
+				setLoad(false);
 			}
 		} catch (error) {
 			console.error("Error making the request:", error);
@@ -66,8 +94,7 @@ export default function Logininput() {
 			{val.length == 0 ? <div style={{ color: "#EBA977" }}>Password is required</div> : <div></div>}
 			{val.length > 8 ? (
 				<div id="login-but" onClick={() => handlelogin()}>
-					{" "}
-					Login
+					{load == true ? <div id="loadingsvg">{loadsvg}</div> : <div>Login</div>}
 				</div>
 			) : (
 				<div style={{ color: "grey" }}>Password should have atleast 8 characters</div>
