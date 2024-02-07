@@ -30,7 +30,7 @@ export default function Createinput() {
 			} else {
 				setTimeout(() => {
 					router.push("Components/page1");
-				}, 3000);
+				}, 2000);
 
 				setExist(2);
 			}

@@ -31,7 +31,7 @@ export default function Logininput() {
 				setExist(2);
 				setTimeout(() => {
 					router.push("/Components/page1");
-				}, 4000);
+				}, 2000);
 			} else {
 				console.log("Doesnt exist");
 				setExist(1);
