@@ -74,21 +74,18 @@ export default function Top() {
 				<div id="arrowback" onClick={handleBackward}>
 					{arrow}
 				</div>
-				<AnimatePresence custom={direction}>
-					<motion.div
-						key={item}
-						id="pic"
-						initial={{  x: direction * 5,visibility: 'visible' }}
-						animate={{  x: 0 ,visibility: 'visible'}}
-						exit={{  x: 0,visibility: 'hidden' }}
-						transition={{
-							// visibility: { duration: 0, ease: "ease" },
-							x: { duration: 0.1, ease: "easeIn" },
-						}}
-					>
-						<img id="item-image" src={pictures[item]} alt="laptop" key={item} />
-					</motion.div>
-				</AnimatePresence>
+				<motion.div
+					key={item}
+					id="pic"
+					initial={{ x: direction * 10, visibility: "visible" }}
+					animate={{ x: 0, visibility: "visible" }}
+					exit={{ x: 0, visibility: "hidden" }}
+					transition={{
+						x: { duration: 0.1, ease: "easeIn", delay: 0.01 },
+					}}
+				>
+					<img id="item-image" src={pictures[item]} alt="laptop" key={item} />
+				</motion.div>
 				<div id="arrowforward" onClick={handleForward}>
 					{arrow}
 				</div>
