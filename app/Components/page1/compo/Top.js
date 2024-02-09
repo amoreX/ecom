@@ -78,12 +78,12 @@ export default function Top() {
 					<motion.div
 						key={item}
 						id="pic"
-						initial={{ opacity: 1, x: direction * 100 }}
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: direction * 100 }}
+						initial={{  x: direction * 5,visibility: 'visible' }}
+						animate={{  x: 0 ,visibility: 'visible'}}
+						exit={{  x: 0,visibility: 'hidden' }}
 						transition={{
-							opacity: { duration: 0 },
-							x: { duration: 0.01, ease: "easeInOut" },
+							// visibility: { duration: 0, ease: "ease" },
+							x: { duration: 0.1, ease: "easeIn" },
 						}}
 					>
 						<img id="item-image" src={pictures[item]} alt="laptop" key={item} />

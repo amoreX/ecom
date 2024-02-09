@@ -172,29 +172,29 @@ $container-color:#2B304D;
 			justify-content: center;
 			height:30vh;
 			gap:10px;
-			transition:0.38s ease-in-out;
+			// transition:0.38s ease-in-out;
 			#arrowback{
 				@include arrow();
 				transform: rotate(180deg);
 				position:absolute;
-				left:10%;
+				left:25%;
 
 			}
 			#arrowforward{
 				@include arrow();
 				position:absolute;
-				right:10%;
+				right:25%;
 
 			}
 
 			#pic{
 				color:white;
-				transition:0.38s ease-in-out;
+				// transition:0.38s ease-in-out;
 				// background-color: white;
 				// width: fit-content;
 				width:20vw;
 				padding-inline: 50px;
-				overflow: hidden;
+				// overflow: hidden;
 				img{
 					width:20vw;
 					height:auto;
