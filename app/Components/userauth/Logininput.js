@@ -57,6 +57,7 @@ export default function Logininput() {
 				setLoad(false);
 				setExist(2);
 				setTimeout(() => {
+					sessionStorage.setItem('myVariable', 'myValue');
 					router.push("/Components/page1");
 				}, 2000);
 			} else {

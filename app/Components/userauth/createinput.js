@@ -55,6 +55,7 @@ export default function Createinput() {
 				setLoading(false);
 			} else {
 				setTimeout(() => {
+					sessionStorage.setItem('myVariable', 'myValue');
 					router.push("Components/page1");
 				}, 2000);
 				setLoading(false);
