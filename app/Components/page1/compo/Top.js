@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 export default function Top() {
+	const [coords, setCoords] = useState([]);
 	const [item, setItem] = useState(0);
 	const [direction, setDirection] = useState(1);
 	const arrow = (
@@ -50,46 +51,42 @@ export default function Top() {
 		});
 	};
 
+	const handlemouse = (e) => {
+		setCoords([e.clientX, e.clientY]);
+	};
+
 	return (
-		<motion.div
-			id="top"
-			initial={{
-				scale: 0.01,
-			}}
-			transition={{
-				delay: 1.4,
-				duration: 0.38,
-				type: "tween",
-				animation: "easeInOut",
-			}}
-			animate={{
-				scale: 1,
-			}}
-		>
-			<div id="header-content">
-				<motion.div id="header">{headers[item]}</motion.div>
-				<motion.div id="side-header">{sideheaders[item]}</motion.div>
-			</div>
-			<motion.div id="item">
-				<div id="arrowback" onClick={handleBackward}>
-					{arrow}
+		<div id="top-original" onMouseMove={(e) => handlemouse(e)}>
+			<div
+				id="masti"
+				style={{ transform: `translate(${coords[0] - 200}px,${coords[1] - 100}px)` }}
+			></div>
+			<motion.div id="top">
+				<div id="header-content">
+					<motion.div id="header">{headers[item]}</motion.div>
+					<motion.div id="side-header">{sideheaders[item]}</motion.div>
 				</div>
-				<motion.div
-					key={item}
-					id="pic"
-					initial={{ x: direction * 10, visibility: "visible" }}
-					animate={{ x: 0, visibility: "visible" }}
-					exit={{ x: 0, visibility: "hidden" }}
-					transition={{
-						x: { duration: 0.1, ease: "easeIn", delay: 0.01 },
-					}}
-				>
-					<img id="item-image" src={pictures[item]} alt="laptop" key={item} />
+				<motion.div id="item">
+					<div id="arrowback" onClick={handleBackward}>
+						{arrow}
+					</div>
+					<motion.div
+						key={item}
+						id="pic"
+						initial={{ x: direction * 10, visibility: "visible" }}
+						animate={{ x: 0, visibility: "visible" }}
+						exit={{ x: 0, visibility: "hidden" }}
+						transition={{
+							x: { duration: 0.1, ease: "easeIn", delay: 0.01 },
+						}}
+					>
+						<img id="item-image" src={pictures[item]} alt="laptop" key={item} />
+					</motion.div>
+					<div id="arrowforward" onClick={handleForward}>
+						{arrow}
+					</div>
 				</motion.div>
-				<div id="arrowforward" onClick={handleForward}>
-					{arrow}
-				</div>
 			</motion.div>
-		</motion.div>
+		</div>
 	);
 }
