@@ -44,7 +44,7 @@ export default function Navb() {
 		</svg>
 	);
 
-	const [activeTab, setActiveTab] = useState("home");
+	const [activeTab, setActiveTab] = useState("rial");
 
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
@@ -68,17 +68,17 @@ export default function Navb() {
 		>
 			<div id="nav-items">
 				<motion.div
-					style={{ color: activeTab === "home" ? "#EBA977" : "white" }}
-					onClick={() => handleTabClick("home")}
+					style={{ color: activeTab === "rial" ? "#EBA977" : "white" }}
+					onClick={() => handleTabClick("rial")}
 				>
-					Home
+					RIAL
 				</motion.div>
-				<motion.div
+				{/* <motion.div
 					style={{ color: activeTab === "more" ? "#EBA977" : "white" }}
 					onClick={() => handleTabClick("more")}
 				>
 					More
-				</motion.div>
+				</motion.div> */}
 			</div>
 			<div id="nav-items">
 				<motion.div
